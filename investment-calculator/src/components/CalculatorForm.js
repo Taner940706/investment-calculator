@@ -2,10 +2,23 @@ import React from "react";
 import "./CalculatorForm.css";
 
 export default function CalculatorForm({resetHandler, setCurrentSaving, setYearlyContribution, setExpectedReturn, setDuration, currentSaving,
-  yearlyContribution, expectedReturn, duration }) {
+  yearlyContribution, expectedReturn, duration, calculateHandler }) {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    // userInputs = {
+    //   currentSaving: currentSaving,
+    //   yearlyContribution: yearlyContribution,
+    //   expectedReturn: expectedReturn, 
+    //   duration: duration
+    // }
+
+    calculateHandler({
+      currentSaving: currentSaving,
+      yearlyContribution: yearlyContribution,
+      expectedReturn: expectedReturn, 
+      duration: duration
+    });
 
 
   }

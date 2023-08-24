@@ -8,6 +8,7 @@ function App() {
   const [yearlyContribution, setYearlyContribution] = useState("");
   const [expectedReturn, setExpectedReturn] = useState("");
   const [duration, setDuration] = useState("");
+  const [result, setResult] = useState(null);
 
   const resetHandler = () =>{
 
@@ -41,7 +42,7 @@ function App() {
         yearlyContribution: yearlyContribution
       });
     }
-    // do something with yearlyData ...
+    setResult(yearlyData);
   };
 
   return (
@@ -49,7 +50,7 @@ function App() {
     
       <Header />
       <CalculatorForm resetHandler={resetHandler} setCurrentSaving={setCurrentSaving} setYearlyContribution={setYearlyContribution} setExpectedReturn={setExpectedReturn} setDuration={setDuration} currentSaving={currentSaving}
-      yearlyContribution={yearlyContribution} expectedRetur={expectedReturn} duration={duration} />
+      yearlyContribution={yearlyContribution} expectedRetur={expectedReturn} duration={duration} calculateHandler={calculateHandler} />
       <ResultTable />
     </div>
   );
