@@ -51,7 +51,9 @@ function App() {
       <Header />
       <CalculatorForm resetHandler={resetHandler} setCurrentSaving={setCurrentSaving} setYearlyContribution={setYearlyContribution} setExpectedReturn={setExpectedReturn} setDuration={setDuration} currentSaving={currentSaving}
       yearlyContribution={yearlyContribution} expectedRetur={expectedReturn} duration={duration} calculateHandler={calculateHandler} />
-      <ResultTable />
+
+      {!result && <p style={{textAlign: 'center'}}>No investment yet.</p>}
+      { result && <ResultTable yearlyData={calculateHandler.yearlyData} initialInvestment = {currentSaving} /> }
     </div>
   );
 }

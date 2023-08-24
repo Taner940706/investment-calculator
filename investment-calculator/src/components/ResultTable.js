@@ -1,6 +1,6 @@
 import React from "react";
 import "./ResultTable.css";
-export default function ResultTable() {
+export default function ResultTable({yearlyData, initialInvestment}) {
   return (
     <table className="result">
       <thead>
@@ -13,13 +13,16 @@ export default function ResultTable() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>YEAR NUMBER</td>
-          <td>TOTAL SAVINGS END OF YEAR</td>
-          <td>INTEREST GAINED IN YEAR</td>
-          <td>TOTAL INTEREST GAINED</td>
-          <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        { yearlyData?.map((yearlyData) => (
+            <tr key={yearlyData.year}>
+            <td>{yearlyData.year}</td>
+            <td>{yearlyData.savingsEndOfYear}</td>
+            <td>{yearlyData.yearlyInterest}</td>
+            <td>{yearlyData.savingsEndOfYear - initialInvestment - yearlyData.yearlyContribution * yearlyData.year}</td>
+            <td>{initialInvestment + yearlyData.yearlyContribution * yearlyData.year}</td>
+          </tr>
+        )) }
+        
       </tbody>
     </table>
   );

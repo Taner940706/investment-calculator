@@ -20,6 +20,8 @@ export default function CalculatorForm({resetHandler, setCurrentSaving, setYearl
       duration: duration
     });
 
+    console.log(calculateHandler);
+
 
   }
 
