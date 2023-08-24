@@ -18,9 +18,6 @@ function App() {
 
   }
 
-  const changeHandler = (input, value) => {
-
-  }
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
@@ -51,7 +48,8 @@ function App() {
     <div>
     
       <Header />
-      <CalculatorForm resetHandler={resetHandler} changeHandler={changeHandler} />
+      <CalculatorForm resetHandler={resetHandler} setCurrentSaving={setCurrentSaving} setYearlyContribution={setYearlyContribution} setExpectedReturn={setExpectedReturn} setDuration={setDuration} currentSaving={currentSaving}
+      yearlyContribution={yearlyContribution} expectedRetur={expectedReturn} duration={duration} />
       <ResultTable />
     </div>
   );
